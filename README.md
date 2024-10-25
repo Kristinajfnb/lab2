@@ -41,7 +41,7 @@
 php artisan make:controller HomeController
 
 3. Добавьте метод `index` в `HomeController`, который будет отвечать за отображение главной страницы.
-   ```
+```php
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
@@ -54,7 +54,7 @@ class HomeController extends Controller
 }
 ```
 3. Создайте маршрут для главной страницы в файле `routes/web.php`.
-   ```php
+  ```ini
    public function index()
    {
       return view('home');
@@ -64,12 +64,16 @@ class HomeController extends Controller
   ![Image](./3.jpg)
 
 4. В этом же контроллере `HomeController` создайте метод для страницы **"О нас"**.
-``` public function about()
+```ini
+public function about()
     {
         return view('about'); // Страница "О нас"
-    }```
+    }
+```
 5. Добавьте маршрут для страницы "О нас" в файле `routes/web.php`.
-```Route::get('/about', [HomeController::class, 'about'])->name('about');```
+```ini
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+```
 
 #### №3.2. Создание маршрутов для задач
 

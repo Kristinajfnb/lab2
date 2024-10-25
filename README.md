@@ -38,8 +38,7 @@
 
 1. Создайте класс-контроллер `HomeController` для обработки запросов на главную страницу.
    
-```php artisan make:controller HomeController
-```
+php artisan make:controller HomeController
 
 3. Добавьте метод `index` в `HomeController`, который будет отвечать за отображение главной страницы.
    ```

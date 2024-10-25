@@ -26,7 +26,7 @@
    APP_URL=http://localhost:8000
    ```
 2. Сгенерируйте ключ приложения, который будет использоваться для шифрования данных.
-   ![Image](C:\OSPanel\domains\todo-app/2.jpg)
+  ![Image](./2.jpg)
 
    **Вопрос**: Что будет, если данный ключ попадет в руки злоумышленника?
 
@@ -59,7 +59,7 @@ class HomeController extends Controller
    }
    ```
    - Откройте браузер и перейдите по адресу `http://localhost:8000`.
-   ![Image](C:\OSPanel\domains\todo-app/3.jpg)
+  ![Image](./3.jpg)
 
 4. В этом же контроллере `HomeController` создайте метод для страницы **"О нас"**.
  public function about()
@@ -126,7 +126,7 @@ class TaskController extends Controller
       Route::resource('tasks', TaskController::class);
    
 7. Проверьте созданные маршруты с помощью команды `php artisan route:list`.
-![Image](C:\OSPanel\domains\todo-app/4.jpg)
+![Image](./4.jpg)
 
 ### №4. Шаблонизация с использованием Blade
 
@@ -134,12 +134,12 @@ class TaskController extends Controller
 
 1. Создайте макет основных страниц `layouts/app.blade.php` с общими элементами страницы.
 2. Используйте директиву `@yield` для определения области, в которую будут вставляться содержимое различных страниц.
-![Image](C:\OSPanel\domains\todo-app/5.jpg)
+![Image](./5.jpg)
 
 #### №4.2. Использование шаблонов Blade
 
 1. Создайте представление для главной страницы `home.blade.php` с использованием макета `layouts/app.blade.php` в каталоге `resources/views`.
-   ![Image](C:\OSPanel\domains\todo-app/6.jpg)
+   ![Image](./6.jpg)
 2. Создайте представление для страницы "О нас" — `about.blade.php` с использованием макета `layouts/app.blade.php` в каталоге `resources/views`.
 
 @extends('layouts.app')
@@ -156,7 +156,7 @@ class TaskController extends Controller
    - `index.blade.php` — список задач;
    - `show.blade.php` — отображение задачи;
    - ...
-![Image](C:\OSPanel\domains\todo-app/7.jpg)
+![Image](./7.jpg)
 
 #### №4.3. Анонимные компоненты Blade
 
@@ -184,7 +184,7 @@ class TaskController extends Controller
       7. Приоритет задачи (низкий/средний/высокий);
       8. Исполнитель задачи (Assignment), то есть имя пользователя, которому назначена задача.
 3. Отобразите созданный компонент задачи на странице `show.blade.php` с использованием передаваемых параметров.
-![Image](C:\OSPanel\domains\todo-app/9.jpg)
+![Image](./9.jpg)
 
 #### №4.4. Стилизация страниц
 

@@ -40,6 +40,7 @@
 php artisan make:controller HomeController
 
 2. Добавьте метод `index` в `HomeController`, который будет отвечать за отображение главной страницы.
+   
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;

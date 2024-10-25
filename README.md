@@ -37,10 +37,11 @@
 #### №3.1. Создание маршрутов для главной страницы и страницы "О нас"
 
 1. Создайте класс-контроллер `HomeController` для обработки запросов на главную страницу.
-php artisan make:controller HomeController
+```php artisan make:controller HomeController
+```
 
-2. Добавьте метод `index` в `HomeController`, который будет отвечать за отображение главной страницы.
-   
+3. Добавьте метод `index` в `HomeController`, который будет отвечать за отображение главной страницы.
+   ```
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
@@ -51,7 +52,7 @@ class HomeController extends Controller
         return view('home'); // Отображение главной страницы
     }
 }
-
+```
 3. Создайте маршрут для главной страницы в файле `routes/web.php`.
    ```php
    public function index()
@@ -63,12 +64,12 @@ class HomeController extends Controller
   ![Image](./3.jpg)
 
 4. В этом же контроллере `HomeController` создайте метод для страницы **"О нас"**.
- public function about()
+``` public function about()
     {
         return view('about'); // Страница "О нас"
-    }
+    }```
 5. Добавьте маршрут для страницы "О нас" в файле `routes/web.php`.
-Route::get('/about', [HomeController::class, 'about'])->name('about');
+```Route::get('/about', [HomeController::class, 'about'])->name('about');```
 
 #### №3.2. Создание маршрутов для задач
 
@@ -88,7 +89,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
    - `tasks.show` — отображение отдельной задачи.
    - ...
 5. Добавьте валидацию параметров маршрута `id` для задач. Убедитесь, что параметр `id` — это положительное целое число. Используйте метод `where`.
-   namespace App\Http\Controllers;
+ ```  namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 class TaskController extends Controller
 {
@@ -121,10 +122,10 @@ class TaskController extends Controller
         // Удаление задачи
     }
 }
-
+```
 6. В файле `routes/web.php` замените ручное создание маршрутов для контроллера `TaskController` на ресурсный контроллер:
       ```php
-      Route::resource('tasks', TaskController::class);
+      Route::resource('tasks', TaskController::class);```
    
 7. Проверьте созданные маршруты с помощью команды `php artisan route:list`.
 ![Image](./4.jpg)
@@ -142,7 +143,7 @@ class TaskController extends Controller
 1. Создайте представление для главной страницы `home.blade.php` с использованием макета `layouts/app.blade.php` в каталоге `resources/views`.
    ![Image](./6.jpg)
 2. Создайте представление для страницы "О нас" — `about.blade.php` с использованием макета `layouts/app.blade.php` в каталоге `resources/views`.
-
+```
 @extends('layouts.app')
 @section('title', 'О нас')
 @section('content')
@@ -152,7 +153,7 @@ class TaskController extends Controller
         <p>Наше приложение помогает командам быть организованными и продуктивными.</p>
     </div>
 @endsection
-
+```
 4. Создайте представления для задач со следующими шаблонами в каталоге `resources/views/tasks`:
    - `index.blade.php` — список задач;
    - `show.blade.php` — отображение задачи;
@@ -162,7 +163,7 @@ class TaskController extends Controller
 #### №4.3. Анонимные компоненты Blade
 
 1. Создайте анонимный компонент для отображения `header`. Используйте созданный компонент в макете `layouts/app.blade.php`.
-<header>
+```<header>
     <h1>{{ $title }}</h1>
     <nav>
         <ul>
@@ -172,7 +173,7 @@ class TaskController extends Controller
         </ul>
     </nav>
 </header>
-
+```
 2. Создайте анонимный компонент для отображения задачи:
    1. Компонент должен быть простым и использовать передаваемые параметры с помощью директивы `@props`. Это сделает шаблоны более гибкими и переиспользуемыми на различных страницах.
    2. Компонент должен отображать информацию о задаче:
